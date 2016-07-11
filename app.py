@@ -1,9 +1,12 @@
 from models.post import Post
+from database import Database
 
-__author__ = "jrbattles"
+Database.initialize()
 
-post01 = Post("Post01 title", "Post01 content", "Post01 author")
-post02 = Post("my title", "Post02 content", "Post02 author")
+post = Post.from_mongo('70f2ccb7431e48ed9fa3cb020ed0afd9')
+print(post)
 
-print(post01.content)
-print(post02.content)
+posts = Post.from_blog('456')
+
+for post in posts:
+    print(post)
